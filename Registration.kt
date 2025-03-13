@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.celestialjewels.RetrofitClient
+import com.example.celestial_jewels.RetrofitClient
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 import retrofit2.Call

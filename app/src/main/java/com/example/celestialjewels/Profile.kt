@@ -1,5 +1,6 @@
 package com.example.celestialjewels
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -15,7 +16,7 @@ class Profile : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_profile)
 
-        
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->

@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -67,7 +66,7 @@
                         android:id="@+id/userPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="69 69 69 69"
+                        android:text="992222333444"
                         android:textColor="#FBFBFBFF"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -85,10 +84,13 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Additional Options -->
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="303dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -100,37 +102,7 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#1B1B1B"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_dialog_email" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="To Ship"
-                        android:textAlignment="center"
-                        android:textColor="#FBFBFBFF" />
-
-                    <TextView
-                        android:id="@+id/toShipCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="#FBFBFBFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                app:cardElevation="4dp" />
 
             <!-- To Deliver -->
             <androidx.cardview.widget.CardView
@@ -153,22 +125,15 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@android:drawable/ic_dialog_map" />
+                        android:src="@drawable/deliverybox" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="To Deliver"
+                        android:text="to claim"
                         android:textAlignment="center"
                         android:textColor="#FBFBFBFF" />
 
-                    <TextView
-                        android:id="@+id/toDeliverCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="#FBFBFBFF"
-                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -180,40 +145,8 @@
                 android:layout_margin="4dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#1B1B1B"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@android:drawable/ic_dialog_info" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="To Rate"
-                        android:textAlignment="center"
-                        android:textColor="#FBFBFBFF" />
-
-                    <TextView
-                        android:id="@+id/toRateCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textColor="#FBFBFBFF"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                app:cardElevation="4dp" />
         </LinearLayout>
-
-        <!-- Additional Options -->
 
         <TextView
             android:layout_width="match_parent"
@@ -281,14 +214,14 @@
 
 </ScrollView>
     <!-- Bottom Navigation (Outside ScrollView) -->
-<com.google.android.material.bottomnavigation.BottomNavigationView
-android:id="@+id/bottomNavigationView"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:background="#dab453"
-app:itemIconTint="@android:color/white"
-app:itemTextColor="@color/black"
-app:layout_constraintBottom_toBottomOf="parent"
-app:menu="@menu/bottom_nav" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#dab453"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

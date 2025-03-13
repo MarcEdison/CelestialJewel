@@ -8,7 +8,16 @@
     android:background="@drawable/background"
     tools:context=".Registration" >
 
-
+        android:id="@+id/Login"
+        android:layout_width="178dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="144dp"
+        android:backgroundTint="#dab453"
+        android:text="Register"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -90,8 +99,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Etusername" />
-
-
 
     <EditText
         android:id="@+id/EtPhoneNum"
