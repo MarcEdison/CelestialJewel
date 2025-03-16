@@ -1,15 +1,16 @@
-package com.example.celestialjewels
+import com.example.celestialjewels.Jewelry
 
 object CartManager {
     private val cartItems = mutableListOf<Jewelry>()
 
-    fun addItem(item: Jewelry) {
-        cartItems.add(item)
+    fun addItem(newItem: Jewelry) {
+        val existingItem = cartItems.find { it.name == newItem.name }
+        if (existingItem != null) {
+            existingItem.quantity++ // Increase quantity if item exists
+        } else {
+            cartItems.add(newItem) // Otherwise, add as a new item
+        }
     }
 
-    fun getItems(): List<Jewelry> = cartItems
-
-    fun clearCart() {
-        cartItems.clear()
-    }
+    fun getUniqueItems(): MutableList<Jewelry> = cartItems
 }

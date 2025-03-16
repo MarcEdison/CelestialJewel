@@ -55,7 +55,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btncart1"
         android:layout_width="137dp"
         android:layout_height="49dp"
         android:backgroundTint="#DAB453"

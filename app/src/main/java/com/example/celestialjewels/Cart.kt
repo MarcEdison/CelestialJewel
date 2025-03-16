@@ -2,6 +2,7 @@ package com.example.celestialjewels
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class Cart : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var totalText: TextView
+    private lateinit var cartAdapter: CartAdapter
+    private lateinit var cartItems: MutableList<Jewelry>
+    private lateinit var bottomNavigationView: BottomNavigationView  // Add this line
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,42 +22,60 @@ class Cart : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.cartRecyclerView)
         totalText = findViewById(R.id.totalText)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val cartItems = CartManager.getItems()
 
-        val adapter = CartAdapter(cartItems)
-        recyclerView.adapter = adapter
+        // Fetch unique items from CartManager
+        cartItems = CartManager.getUniqueItems()
 
-        updateTotal(cartItems)
+        // Initialize adapter with updateTotal function
+        cartAdapter = CartAdapter(cartItems) { updateTotal() }
+        recyclerView.adapter = cartAdapter
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        updateTotal()
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        val checkoutButton: Button = findViewById(R.id.btncart1)
+        checkoutButton.setOnClickListener {
+            val intent = Intent(this, Checkout::class.java)
+            intent.putExtra("TOTAL_PRICE", totalText.text.toString()) // Pass total price
+            startActivity(intent)
+        }
+
+        setupBottomNavigation() // Call this function to enable navigation
+    }
+
+    private fun updateTotal() {
+        val total = cartItems.sumOf { it.price * it.quantity }
+        totalText.text = "Total: ₱${String.format("%.2f", total)}"
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
+        // Highlight the Cart tab
+        bottomNavigationView.selectedItemId = R.id.action_notification
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.action_home-> {
-
+                R.id.action_home -> {
                     startActivity(Intent(this, HomePage::class.java))
+                    finish()
                     true
                 }
-                R.id.action_notification-> {
-
+                R.id.action_notification -> {
                     startActivity(Intent(this, Shop::class.java))
+                    finish()
                     true
                 }
                 R.id.action_profile -> {
                     startActivity(Intent(this, Profile::class.java))
+                    finish()
                     true
                 }
                 else -> false
             }
         }
-
-    }
-
-    private fun updateTotal(items: List<Jewelry>) {
-        val total = items.sumOf { it.price }
-        totalText.text = "Total: ₱${String.format("%.2f", total)}"
     }
 
 }

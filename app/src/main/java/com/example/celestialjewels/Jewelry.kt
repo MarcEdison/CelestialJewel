@@ -7,13 +7,15 @@ data class Jewelry(
     val id: Int,
     val name: String,
     val price: Double,
-    val imageResource: Int
+    val imageResource: Int,
+    var quantity: Int = 1 // Default quantity is 1
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readDouble(),
-        parcel.readInt()
+        parcel.readInt(),
+        parcel.readInt() // Read quantity from Parcel
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -21,6 +23,7 @@ data class Jewelry(
         parcel.writeString(name)
         parcel.writeDouble(price)
         parcel.writeInt(imageResource)
+        parcel.writeInt(quantity) // Write quantity to Parcel
     }
 
     override fun describeContents(): Int = 0

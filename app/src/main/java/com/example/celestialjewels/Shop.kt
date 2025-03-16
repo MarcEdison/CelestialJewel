@@ -45,6 +45,9 @@ class Shop : AppCompatActivity() {
     private fun setupBottomNavigation() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
+        // Highlight the Shop tab
+        bottomNavigationView.selectedItemId = R.id.action_notification
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_home -> {
@@ -53,8 +56,8 @@ class Shop : AppCompatActivity() {
                     true
                 }
                 R.id.action_notification -> {
-                    // Already in Shop, return true but do nothing
-                    true
+                    // Prevent reloading the same page
+                    false
                 }
                 R.id.action_profile -> {
                     startActivity(Intent(this, Profile::class.java))
@@ -64,9 +67,5 @@ class Shop : AppCompatActivity() {
                 else -> false
             }
         }
-
-        // Highlight the Shop tab
-        bottomNavigationView.selectedItemId = R.id.action_notification
     }
-
 }
