@@ -65,27 +65,26 @@ class HomePage : AppCompatActivity() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.action_home-> {
-
-                    startActivity(Intent(this, HomePage::class.java))
+                R.id.action_home -> {
+                    // Already in HomePage, do nothing
                     true
                 }
-                R.id.action_notification-> {
-
+                R.id.action_notification -> {
                     startActivity(Intent(this, Shop::class.java))
+                    finish()
                     true
                 }
                 R.id.action_profile -> {
                     startActivity(Intent(this, Profile::class.java))
+                    finish()
                     true
                 }
                 else -> false
             }
         }
 
-
-
-
-
+        // Highlight the Home tab
+        bottomNavigationView.selectedItemId = R.id.action_home
     }
+
 }

@@ -129,9 +129,9 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Registration"
-        android:layout_width="202dp"
-        android:layout_height="49dp"
+        android:id="@+id/passBackbtn"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/active"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
