@@ -2,19 +2,27 @@ package com.example.celestialjewels
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.celestialjewels.CartAdapter
+import com.example.celestialjewels.HomePage
+import com.example.celestialjewels.Jewelry
+import com.example.celestialjewels.Profile
+import com.example.celestialjewels.R
+import com.example.celestialjewels.Shop
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class Cart : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var totalText: TextView
     private lateinit var cartAdapter: CartAdapter
     private lateinit var cartItems: MutableList<Jewelry>
-    private lateinit var bottomNavigationView: BottomNavigationView  // Add this line
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,12 +45,10 @@ class Cart : AppCompatActivity() {
 
         val checkoutButton: Button = findViewById(R.id.btncart1)
         checkoutButton.setOnClickListener {
-            val intent = Intent(this, Checkout::class.java)
-            intent.putExtra("TOTAL_PRICE", totalText.text.toString()) // Pass total price
-            startActivity(intent)
+            showOrderSummaryDialog()
         }
 
-        setupBottomNavigation() // Call this function to enable navigation
+        setupBottomNavigation()
     }
 
     private fun updateTotal() {
@@ -50,12 +56,37 @@ class Cart : AppCompatActivity() {
         totalText.text = "Total: ₱${String.format("%.2f", total)}"
     }
 
+    private fun showOrderSummaryDialog() {
+        val orderSummary = StringBuilder()
+        cartItems.forEach { item ->
+            orderSummary.append("${item.name} x${item.quantity} - ₱${String.format("%.2f", item.price * item.quantity)}\n")
+        }
+        orderSummary.append("\nTotal: ${totalText.text}")
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Order Summary")
+            .setMessage(orderSummary.toString())
+            .setPositiveButton("Confirm") { _, _ ->
+                showOrderSuccessDialog()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showOrderSuccessDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Order Placed Successfully!")
+            .setMessage("Your order has been placed successfully. Thank you for shopping with us!")
+            .setPositiveButton("OK") { _, _ ->
+                val intent = Intent(this, HomePage::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+            .show()
+    }
+
     private fun setupBottomNavigation() {
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
-        // Highlight the Cart tab
         bottomNavigationView.selectedItemId = R.id.action_notification
-
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.action_home -> {
@@ -77,5 +108,4 @@ class Cart : AppCompatActivity() {
             }
         }
     }
-
 }
