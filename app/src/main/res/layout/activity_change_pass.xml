@@ -9,6 +9,9 @@
     <!-- Profile Header Section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
@@ -49,13 +52,12 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Change
-                Password"
+                android:text="Change Details"
                 android:textColor="@android:color/background_light"
-                android:textSize="28dp" />
+                android:textSize="24dp" />
 
 
         </FrameLayout>
@@ -82,46 +84,72 @@
         android:id="@+id/linearLayout2"
         android:layout_width="309dp"
         android:layout_height="212dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
+
         <EditText
-            android:id="@+id/Etnewpass"
-            android:layout_width="match_parent"
+            android:id="@+id/Etusername"
+            android:layout_width="250dp"
             android:layout_height="52dp"
-            android:layout_marginTop="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
             android:background="@drawable/textfield_border"
-            android:drawableStart="@drawable/ic_lock_icon"
+            android:drawableStart="@drawable/ic_person_icon"
             android:drawablePadding="15dp"
             android:ems="10"
-            android:hint="Enter New Password"
-            android:inputType="text|textPassword"
+            android:hint="Enter Username"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="#050505"
+            android:textColorHint="#0B0B0B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/EtPhoneNum"
+            android:layout_width="250dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/textfield_border"
+            android:drawableStart="@drawable/ic_phone_icon"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Cellphone Number"
+            android:inputType="text|textPhonetic"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="#000000"
             android:textColorHint="#0D0D0D"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Etusername" />
+            app:layout_constraintTop_toBottomOf="@+id/EtEmail" />
 
         <EditText
-            android:id="@+id/Etcnewpass"
-            android:layout_width="match_parent"
+            android:id="@+id/EtEmail"
+            android:layout_width="250dp"
             android:layout_height="52dp"
-            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
             android:background="@drawable/textfield_border"
-            android:drawableStart="@drawable/ic_lock_icon"
+            android:drawableStart="@drawable/ic_email_icon"
             android:drawablePadding="15dp"
             android:ems="10"
-            android:hint="Confirm Password"
-            android:inputType="text|textPassword"
+            android:hint="Email Address"
+            android:inputType="text|textEmailAddress"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="#000000"
             android:textColorHint="#0D0D0D"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Etusername" />
 

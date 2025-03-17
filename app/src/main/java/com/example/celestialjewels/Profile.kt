@@ -16,7 +16,7 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        val changePassTextView = findViewById<TextView>(R.id.changepass)
+        val changePassTextView = findViewById<TextView>(R.id.changedetails)
         val logoutButton = findViewById<TextView>(R.id.logoutButton) // Logout Button
         val shopLocationButton = findViewById<TextView>(R.id.addressButton) // Shop Location Button
 

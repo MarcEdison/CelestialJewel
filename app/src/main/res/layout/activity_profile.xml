@@ -141,13 +141,13 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/changepass"
+                        android:id="@+id/changedetails"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="58dp"
                         android:background="?attr/selectableItemBackground"
                         android:drawableEnd="@android:drawable/ic_menu_edit"
                         android:padding="16dp"
-                        android:text="Change Password"
+                        android:text="Change Details"
                         />
 
                     <View
@@ -158,7 +158,7 @@
                     <TextView
                         android:id="@+id/addressButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="58dp"
                         android:background="?attr/selectableItemBackground"
                         android:drawableEnd="@android:drawable/ic_menu_myplaces"
                         android:padding="16dp"
