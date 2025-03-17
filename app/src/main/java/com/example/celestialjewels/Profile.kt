@@ -3,6 +3,7 @@ package com.example.celestialjewels
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -22,6 +23,13 @@ class Profile : AppCompatActivity() {
 
         // Set Profile as selected when the activity opens
         bottomNavigationView.selectedItemId = R.id.action_profile
+
+        val btnDelivery = findViewById<ImageButton>(R.id.btn_delivery)
+        btnDelivery.setOnClickListener {
+            val intent = Intent(this, activity_toclaim::class.java)
+            startActivity(intent)
+        }
+
 
         // Navigate to Change Password screen
         changePassTextView.setOnClickListener {
