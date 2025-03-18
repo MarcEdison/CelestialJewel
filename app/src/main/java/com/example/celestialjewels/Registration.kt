@@ -21,7 +21,7 @@ private lateinit var etusername: EditText
     private lateinit var etpassword: EditText
     private lateinit var etphoneNum: EditText
     private lateinit var etemail: EditText
-    private val apiService = RetrofitClient.instance.create(ApiService::class.java)
+    private val apiService = RetrofitClient.retrofit.create(ApiService::class.java)
 
 
 

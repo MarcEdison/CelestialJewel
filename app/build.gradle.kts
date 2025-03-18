@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation (libs.logging.interceptor)
+
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
     implementation(libs.retrofit)
@@ -46,6 +48,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.mediarouter)
     implementation(libs.play.services.maps)
+    implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
